@@ -9,6 +9,9 @@ import urllib
 import codecs
 import warnings
 import platform
+import bs4 as bs
+import json
+
 warnings.filterwarnings('ignore')
 
 
@@ -17,7 +20,7 @@ def facebook_login(email, passw):
     chrome_options = webdriver.ChromeOptions()
     prefs = {"profile.default_content_setting_values.notifications" : 2}
     chrome_options.add_experimental_option("prefs",prefs)
-    if platform.system() == "Windows"
+    if platform.system() == "Windows":
         driver = webdriver.Chrome(executable_path="resource/chromedriver.exe", chrome_options=chrome_options)
     else:
         driver = webdriver.Chrome(chrome_options=chrome_options)
@@ -26,17 +29,17 @@ def facebook_login(email, passw):
     driver.get("http://www.facebook.com")
     driver.find_element_by_id("email").send_keys(email)
     driver.find_element_by_id("pass").send_keys(passw)
-    # driver.find_element_by_id("u_0_s").click()
-    driver.find_element_by_xpath("//input[@value='Log In']").click()
+    driver.find_element_by_id("u_0_s").click()
+    #driver.find_element_by_xpath("//input[@value='Log In']").click()
 
     return driver
 
 def read_settings():
     if platform.system() == "Windows":
-        with open("git/mining/resource/settings_win.json") as data_file:
+        with open("resource\\settings_win.json") as data_file:
                 settings = json.load(data_file)
     else:
-        with open("git/mining/resource/settings_linux.json") as data_file:
+        with open("resource/settings_linux.json") as data_file:
                 settings = json.load(data_file)
     return settings
 
@@ -46,6 +49,8 @@ def save_page(fn, content):
     html.write(content.encode('utf-8'))
     html.close()
 
+
+settings = read_settings()
 
 # Import Phone list
 phone_file = settings['phone_file']
