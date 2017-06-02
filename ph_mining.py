@@ -114,7 +114,7 @@ fb_folder = settings['output_folder']
 df = pd.read_csv(phone_file, dtype=object, usecols=['DUG'])
 df = df.sample(frac=1).reset_index(drop=True)
 fb_df = pd.read_csv(fb_account)
-
+fb_df = fb_df.sample(frac=1).reset_index(drop=True)
 phone_db = sql()
 
 phone_db.print_rows()
@@ -175,7 +175,6 @@ for index, acc in fb_df.iterrows():
 
     print(email,':' ,str(total))
     driver.close()
-    break
 
 phone_db.print_rows()
 del phone_db
