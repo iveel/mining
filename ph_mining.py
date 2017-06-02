@@ -127,9 +127,9 @@ for index, acc in fb_df.iterrows():
     driver = facebook_login(email, passw)
 
     if driver == False:
-        print(email,': Login Problem')
+        print(email,': Login Problem ( login id unknown)')
         driver.close()
-        break
+        continue
 
     if "login_attempt" in driver.current_url:
         print(email,': Account disabled')
