@@ -1,5 +1,6 @@
 {
   "fb_account":"resource\\fb_pass.csv",
-  "phone_file":"D:\\Election_2016\\personal_data\\mobile_data\\unitel\\89_,xlsx",
-  "output_folder":"D:\\Election_2016\\facebook_data\\user\\"
+  "phone_file":"resource\\clean_numbers.csv",
+  "output_folder":"D:\\Election_2016\\facebook_data\\user\\",
+  "max_profile":100
 }

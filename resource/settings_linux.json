@@ -1,5 +1,6 @@
 {
   "fb_account":"resource/fb_pass.csv",
-  "phone_file":"/media/iveel/data/Datasets/Data/123456/89_.xlsx",
-  "output_folder":"/media/iveel/data/Datasets/FB/"
+  "phone_file":"resource/clean_numbers.csv",
+  "output_folder":"/media/iveel/data/Datasets/FB/",
+  "max_profile":100
 }
